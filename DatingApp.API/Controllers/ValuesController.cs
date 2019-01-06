@@ -22,6 +22,7 @@ namespace DatingApp.API.Controllers
         }
         // GET api/values
         // To make sure that when, for example, hundred users requesting at the same time, it won't block the API
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
