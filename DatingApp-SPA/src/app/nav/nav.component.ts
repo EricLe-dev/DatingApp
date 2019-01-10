@@ -20,13 +20,13 @@ export class NavComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log('Logged in succesfully');
+      // console.log('Logged in succesfully');
       // this.userName = this.authService.userNameToDisplay().charAt(0).toUpperCase() + this.authService.userNameToDisplay().slice(1);
       this.alertify.success(`Logged in successfully`);
     }, error => {
       console.log(error);
     }, () => {
-      this.router.navigate(['/member']);
+      this.router.navigate(['/members']);
     });
   }
 
