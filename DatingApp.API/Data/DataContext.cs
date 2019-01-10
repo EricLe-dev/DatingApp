@@ -10,5 +10,6 @@ namespace DatingApp.API.Data
 
         public DbSet<Value> Values { get; set; } //the value in generic bracket is from model
         public DbSet<User> Users { get; set; }
+        public DbSet<Photo> Photos { get; set; }
     }
 }
