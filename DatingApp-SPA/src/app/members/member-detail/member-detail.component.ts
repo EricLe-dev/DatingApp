@@ -22,6 +22,8 @@ export class MemberDetailComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.user = data['user'];
     });
+    // or use the
+    // this.loadUser();
 
     this.galleryOptions = [
       {
@@ -35,8 +37,6 @@ export class MemberDetailComponent implements OnInit {
     ];
 
     this.galleryImages = this.getImages();
-    // or use the
-    // this.loadUser();
   }
 
   getImages() {
