@@ -9,6 +9,7 @@ export class AlertifyService {
 constructor() { }
 
   confirm(message: string, okCallback: () => any) {
+    alertify.defaults.glossary.title = 'Please confirm';
     alertify.confirm(message, function(e) {
       if (e) {
         okCallback();

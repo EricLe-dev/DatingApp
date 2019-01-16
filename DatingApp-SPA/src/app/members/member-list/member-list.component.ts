@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/_services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from '../../_services/alertify.service';
 import { UserService } from '../../_services/user.service';
@@ -13,13 +14,18 @@ export class MemberListComponent implements OnInit {
   users: User[];
 
   constructor(private userService: UserService, private alertify: AlertifyService,
-     private route: ActivatedRoute) { }
+     private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
     // this.loadUsers();
     this.route.data.subscribe(data => {
       this.users = data['user'];
     });
+    for (let index = 0; index < this.users.length; index++) {
+      if (this.authService.decodedToken.unique_name === this.users[index].username) {
+        this.users.splice(index, 1);
+      }
+    }
   }
 
   loadUsers() {
